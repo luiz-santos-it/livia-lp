@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { INSTAGRAM, CRN } from "../constants";
 

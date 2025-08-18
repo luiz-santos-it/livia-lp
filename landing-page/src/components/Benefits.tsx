@@ -1,9 +1,17 @@
-import { Box, Container, Heading, SimpleGrid, HStack, Icon, Text } from "@chakra-ui/react";
-import { CheckCircleIcon } from "@chakra-ui/icons";
+import { Box, Container, Heading, SimpleGrid, HStack, Text } from "@chakra-ui/react";
+
+const CheckIcon = () => (
+  <Box as="span" aria-hidden="true">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="10" stroke="#255D57" strokeWidth="2" />
+      <path d="M7 12l3 3 7-7" stroke="#255D57" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  </Box>
+);
 
 const Item = ({ children }: { children: React.ReactNode }) => (
   <HStack align="start" spacing={4}>
-    <Icon as={CheckCircleIcon} color="brand.petrol" boxSize={6} aria-hidden="true"/>
+    <CheckIcon />
     <Text fontSize="lg">{children}</Text>
   </HStack>
 );
