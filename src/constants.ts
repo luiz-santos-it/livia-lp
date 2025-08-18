@@ -8,4 +8,4 @@ export const COLORS = {
 
 export const WHATS_LINK = "https://wa.me/message/QNG6NJJNZTVLB1";
 export const INSTAGRAM  = "https://instagram.com/nutrianjoos";
-export const CRN        = "CRN-12345"; // troque pelo registro real
+export const CRN        = "CRN-22849/P"; 

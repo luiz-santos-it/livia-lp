@@ -12,6 +12,7 @@ import {
 import { COLORS, WHATS_LINK } from "../constants";
 import { trackWhatsClick } from "../utils/analytics";
 import instaMock from "/insta-mock.png"; // screenshot do Instagram (1080x1920 recomendado)
+import { CRN } from "../constants";
 
 export default function Hero() {
   return (
@@ -47,7 +48,7 @@ export default function Hero() {
 
             {/* Credenciais rápidas */}
             <Stack direction="row" spacing={3} flexWrap="wrap">
-              <Badge colorScheme="orange">CRN-12345</Badge>
+              <Badge colorScheme="orange"> {CRN}</Badge>
               <Badge colorScheme="purple">Online (global)</Badge>
               <Badge colorScheme="teal">Presencial: Salvador & Baixo Sul</Badge>
             </Stack>
