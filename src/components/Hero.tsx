@@ -63,23 +63,16 @@ export default function HeroModern() {
               </Box>
             </Heading>
 
-            <Stack spacing={4}>
-              <Text fontSize={{ base: "md", md: "lg" }} color="gray.700" maxW="lg">
-                Já tentou mudar sua alimentação e acabou se sentindo preso em
-                ciclos de <b>restrição</b> ou <b>exageros</b>? Talvez até tenha
-                sentido falta de energia no dia a dia.  
-                Aqui, você encontra <b>ciência com cuidado humano</b> — em um plano
-                que respeita sua história, sua rotina e seus objetivos.
-              </Text>
-
-              <Text fontSize={{ base: "md", md: "lg" }} color="gray.700" maxW="lg">
-                Seja para viver com mais leveza, superar desafios com a comida ou
-                alcançar <b>alta performance esportiva</b> em modalidades como{" "}
-                <b>futevôlei, corrida, atletismo ou musculação</b>, o propósito é o
-                mesmo: apoiar você na conquista de saúde real, equilíbrio e
-                resultados duradouros — sem julgamentos e com acolhimento.
-              </Text>
-            </Stack>
+            <Text fontSize={{ base: "md", md: "lg" }} color="gray.700" maxW="lg">
+              Já tentou mudar sua alimentação e acabou em ciclos de{" "}
+              <b>restrição</b> ou <b>exageros</b>? Aqui você encontra{" "}
+              <b>ciência com cuidado humano</b> — em um plano que respeita sua
+              rotina e seus objetivos. Seja para viver com mais leveza ou
+              alcançar <b>performance esportiva</b> em modalidades como{" "}
+              <b>futevôlei, corrida, atletismo ou musculação</b>, o propósito é
+              o mesmo: apoiar você na conquista de saúde real, equilíbrio e
+              resultados duradouros — sempre com acolhimento.
+            </Text>
 
             {/* Bullets */}
             <Stack spacing={3} fontSize={{ base: "md", md: "lg" }} color="gray.800">
@@ -96,19 +89,6 @@ export default function HeroModern() {
                 <Text>Plano alimentar feito sob medida para a sua vida real</Text>
               </HStack>
             </Stack>
-
-            {/* Badges minimalistas */}
-            <HStack spacing={3} flexWrap="wrap" pt={2}>
-              <Badge variant="outline" colorScheme="orange">
-                {CRN}
-              </Badge>
-              <Badge variant="outline" colorScheme="teal">
-                Salvador & Baixo Sul
-              </Badge>
-              <Badge variant="outline" colorScheme="purple">
-                Online (Global)
-              </Badge>
-            </HStack>
 
             {/* CTAs */}
             <HStack spacing={4} pt={2} flexWrap="wrap">
