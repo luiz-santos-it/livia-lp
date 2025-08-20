@@ -44,26 +44,32 @@ export default function About() {
           em conquistas reais e sustentáveis.
         </Text>
 
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems="center">
+        <SimpleGrid
+          columns={{ base: 1, md: 2 }}
+          spacing={10}
+          alignItems="center"
+        >
           {/* Texto */}
-          <Stack spacing={6} fontSize="lg" color="gray.800">
+          <Stack spacing={6} fontSize="lg" color="gray.800" order={{ base: 1, md: 0 }}>
             <Text>
-              Minha história começou no <b>fisiculturismo</b>, onde aprendi o
-              verdadeiro significado de disciplina, foco e performance. Essa
-              vivência me ensinou que <b>resultados consistentes</b> vêm da
-              união entre ciência e prática.
+              Ao longo da minha jornada, vivi experiências que me mostraram o
+              verdadeiro impacto da <b>disciplina e do foco</b>. Uma delas foi
+              o <b>fisiculturismo</b>, onde aprendi na prática que resultados
+              consistentes nascem da união entre ciência e dedicação.
             </Text>
 
             <Text>
-              Hoje, levo esse aprendizado para <b>atletas e pessoas comuns</b>,
-              ajudando cada paciente a atingir seu máximo potencial — seja
-              <b> evoluindo nos treinos</b> ou <b>emagrecendo com saúde e equilíbrio</b>.
+              Hoje, aplico esse aprendizado tanto para <b>atletas</b> quanto para{" "}
+              <b>pessoas comuns</b>, ajudando cada paciente a alcançar seu
+              máximo potencial — seja para <b>melhorar a performance nos
+              treinos</b> ou para <b>emagrecer com saúde e equilíbrio</b>.
             </Text>
 
             <Text>
-              Meu propósito é mostrar que <b>nutrição não precisa ser difícil</b>:
-              com planejamento, acompanhamento próximo e estratégias bem pensadas,
-              você conquista resultados que realmente duram.
+              Meu propósito é mostrar que <b>nutrição não precisa ser
+              complicada</b>: com um plano alimentar adaptado à sua rotina,
+              acompanhamento próximo e estratégias inteligentes, você conquista
+              resultados que realmente duram.
             </Text>
 
             <List spacing={3}>
@@ -88,26 +94,28 @@ export default function About() {
             gap={6}
             justifyItems="center"
           >
-            <Image
-              src="/livia-posando.jpg"
-              alt="Livia Anjos em competição de fisiculturismo"
-              borderRadius="xl"
-              shadow="lg"
-              objectFit="cover"
-              h={{ base: "320px", md: "420px" }}
-              w="100%"
-              maxW="300px"
-            />
-            <Image
-              src="/livia-fisiculturista.jpg"
-              alt="Livia Anjos no palco de fisiculturismo"
-              borderRadius="xl"
-              shadow="lg"
-              objectFit="cover"
-              h={{ base: "320px", md: "420px" }}
-              w="100%"
-              maxW="300px"
-            />
+            <Box w="100%" maxW="300px" aspectRatio={3 / 4}>
+              <Image
+                src="/livia-posando.jpg"
+                alt="Livia Anjos em competição de fisiculturismo"
+                borderRadius="xl"
+                shadow="lg"
+                objectFit="cover"
+                w="100%"
+                h="100%"
+              />
+            </Box>
+            <Box w="100%" maxW="300px" aspectRatio={3 / 4}>
+              <Image
+                src="/livia-fisiculturista.jpg"
+                alt="Livia Anjos no palco de fisiculturismo"
+                borderRadius="xl"
+                shadow="lg"
+                objectFit="cover"
+                w="100%"
+                h="100%"
+              />
+            </Box>
           </Grid>
         </SimpleGrid>
       </Container>
