@@ -11,6 +11,7 @@ import {
 import Logo from "./Logo";
 import { WHATS_LINK, METHOD_NAME } from "../constants";
 import { trackWhatsClick } from "../utils/analytics";
+import { CTAButton } from "./CTAButton";
 
 export default function Header() {
   const ctaLabel = useBreakpointValue({
@@ -63,28 +64,7 @@ export default function Header() {
             rounded="full"
           />
 
-          {/* Botão com texto a partir de sm */}
-          <Button
-            as="a"
-            href={waLink}
-            target="_blank"
-            rel="noopener"
-            onClick={() => trackWhatsClick("header")}
-            display={{ base: "none", sm: "inline-flex" }}
-            h={10}
-            px={5}
-            rounded="full"
-            bg="#00897B"
-            color="white"
-            fontWeight="medium"
-            gap={2}
-            leftIcon={<Image src="/whatsapp.png" alt="WhatsApp" boxSize={5} />}
-            _hover={{ bg: "#00796B", transform: "translateY(-1px)" }}
-            _active={{ bg: "#00695C" }}
-            _focusVisible={{ boxShadow: "0 0 0 3px rgba(0,105,92,0.4)" }}
-          >
-            {ctaLabel}
-          </Button>
+          <CTAButton variant="secondary">{ctaLabel}</CTAButton>
         </HStack>
       </Container>
     </Box>
