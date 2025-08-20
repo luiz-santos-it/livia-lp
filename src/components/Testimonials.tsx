@@ -1,47 +1,135 @@
-import { Box, Container, Heading, SimpleGrid, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  IconButton,
+  useBreakpointValue,
+  Image,
+} from "@chakra-ui/react";
+import Slider from "react-slick";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+
+// ** NÃO esqueça de importar os estilos abaixo **
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const testimonials = [
   { src: "/relato1.jpg", alt: "Depoimento 1" },
   { src: "/relato2.png", alt: "Depoimento 2" },
   { src: "/relato3.png", alt: "Depoimento 3" },
+  { src: "/relato4.png", alt: "Depoimento 4" },
+  { src: "/relato5.png", alt: "Depoimento 5" },
 ];
 
 export default function Testimonials() {
+  const slidesToShow = useBreakpointValue({ base: 1, md: 2, lg: 3 }) || 1;
+
+  const settings = {
+    dots: true,
+    arrows: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  };
+
   return (
     <Box as="section" bg="gray.50" py={{ base: 12, md: 16 }}>
-      <Container maxW="6xl">
-        <Heading as="h2" size="xl" mb={10} textAlign="center" color="brand.petrol">
+      <Container maxW="6xl" position="relative">
+        <Heading
+          as="h2"
+          size="xl"
+          mb={6}
+          textAlign="center"
+          color="brand.petrol"
+        >
           Resultados que falam por si
         </Heading>
 
-        <Text fontSize="lg" textAlign="center" color="gray.700" mb={12} maxW="2xl" mx="auto">
-          Veja alguns relatos de quem já está vivendo os resultados na prática.  
-          Histórias reais, direto do WhatsApp e Instagram.
+        <Text
+          fontSize="lg"
+          textAlign="center"
+          color="gray.700"
+          mb={12}
+          maxW="2xl"
+          mx="auto"
+        >
+          Veja alguns relatos de quem já está vivendo os resultados na prática.
         </Text>
 
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+        <Slider key={slidesToShow} {...settings}>
           {testimonials.map((t, i) => (
-            <Box
-              key={i}
-              borderRadius="xl"
-              overflow="hidden"
-              shadow="md"
-              bg="white"
-              p={2}
-            >
-              {/* Moldura de celular */}
+            <Box key={i} px={2} h="auto">
               <Box
-                border="2px solid"
-                borderColor="gray.200"
-                borderRadius="2xl"
-                overflow="hidden"
+                borderRadius="xl"
+                shadow="md"
+                bg="white"
+                p={4}
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
               >
-                <Image src={t.src} alt={t.alt} w="100%" objectFit="cover" />
+                <Image
+                  src={t.src}
+                  alt={t.alt}
+                  w="100%"
+                  maxH="500px"
+                  objectFit="contain"
+                  display="block"
+                  mx="auto"
+                  bg="white"
+                  borderRadius="lg"
+                />
               </Box>
             </Box>
           ))}
-        </SimpleGrid>
+        </Slider>
       </Container>
     </Box>
+  );
+}
+
+function NextArrow(props: any) {
+  const { onClick } = props;
+  return (
+    <IconButton
+      aria-label="Próximo"
+      icon={<ChevronRightIcon boxSize={6} />}
+      onClick={onClick}
+      position="absolute"
+      right="0"
+      top="50%"
+      transform="translateY(-50%)"
+      borderRadius="full"
+      bg="white"
+      shadow="md"
+      zIndex={2}
+      _hover={{ bg: "gray.100" }}
+    />
+  );
+}
+
+function PrevArrow(props: any) {
+  const { onClick } = props;
+  return (
+    <IconButton
+      aria-label="Anterior"
+      icon={<ChevronLeftIcon boxSize={6} />}
+      onClick={onClick}
+      position="absolute"
+      left="0"
+      top="50%"
+      transform="translateY(-50%)"
+      borderRadius="full"
+      bg="white"
+      shadow="md"
+      zIndex={2}
+      _hover={{ bg: "gray.100" }}
+    />
   );
 }
