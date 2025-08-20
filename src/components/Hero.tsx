@@ -6,7 +6,6 @@ import {
   Stack,
   Image,
   Box,
-  Badge,
   HStack,
   Icon,
 } from "@chakra-ui/react";
@@ -14,7 +13,7 @@ import { motion } from "framer-motion";
 import { FiCheckCircle } from "react-icons/fi";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import { TbClipboardCheck } from "react-icons/tb";
-import { COLORS, CRN } from "../constants";
+import { COLORS } from "../constants";
 import fotoLivia from "/foto-livia.jpg";
 import { CTAButton } from "./CTAButton";
 
@@ -63,13 +62,28 @@ export default function HeroModern() {
               </Box>
             </Heading>
 
-            <Text fontSize={{ base: "md", md: "lg" }} color="gray.700" maxW="lg">
+            {/* Parágrafo 1 */}
+            <Text
+              fontSize={{ base: "md", md: "lg" }}
+              lineHeight="1.6"
+              color="gray.700"
+              maxW="lg"
+            >
               Já tentou mudar sua alimentação e acabou em ciclos de{" "}
               <b>restrição</b> ou <b>exageros</b>? Aqui você encontra{" "}
               <b>ciência com cuidado humano</b> — em um plano que respeita sua
-              rotina e seus objetivos. Seja para viver com mais leveza ou
-              alcançar <b>performance esportiva</b> em modalidades como{" "}
-              <b>futevôlei, corrida, atletismo ou musculação</b>, o propósito é
+              rotina e seus objetivos.
+            </Text>
+
+            {/* Parágrafo 2 */}
+            <Text
+              fontSize={{ base: "md", md: "lg" }}
+              lineHeight="1.6"
+              color="gray.700"
+              maxW="lg"
+            >
+              Seja para viver com mais leveza ou alcançar{" "}
+              <b>performance esportiva</b>, o propósito é
               o mesmo: apoiar você na conquista de saúde real, equilíbrio e
               resultados duradouros — sempre com acolhimento.
             </Text>
@@ -94,6 +108,9 @@ export default function HeroModern() {
             <HStack spacing={4} pt={2} flexWrap="wrap">
               <CTAButton variant="primary">
                 Quero cuidar da minha saúde com ciência
+              </CTAButton>
+              <CTAButton variant="secondary">
+                Conhecer histórias reais de pacientes
               </CTAButton>
             </HStack>
           </MotionStack>
