@@ -17,6 +17,7 @@ import { TbClipboardCheck } from "react-icons/tb";
 import { COLORS, WHATS_LINK, CRN } from "../constants";
 import { trackWhatsClick } from "../utils/analytics";
 import fotoLivia from "/foto-livia.jpg";
+import { CTAButton } from "./CTAButton";
 
 export default function HeroB() {
   return (
@@ -90,29 +91,8 @@ export default function HeroB() {
               </Badge>
             </HStack>
 
-            {/* CTA */}
-            <Button
-              as="a"
-              href={WHATS_LINK}
-              target="_blank"
-              rel="noopener"
-              onClick={() => trackWhatsClick("heroB")}
-              h={14}
-              px={8}
-              rounded="full"
-              bg={COLORS.orange}
-              color="white"
-              fontWeight="bold"
-              fontSize={{ base: "md", md: "lg" }}
-              alignSelf={{ base: "stretch", md: "start" }}
-              _hover={{ bg: "#e67300", transform: "translateY(-2px)" }}
-              _active={{ bg: "#cc6600" }}
-              _focusVisible={{ boxShadow: "0 0 0 3px rgba(255,140,0,0.4)" }}
-              transition="all 0.2s ease"
-              shadow="md"
-            >
-              Quero transformar minha rotina
-            </Button>
+          <CTAButton variant="primary">Quero transformar minha rotina</CTAButton>
+
           </Stack>
 
           {/* Imagem */}

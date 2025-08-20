@@ -6,10 +6,10 @@ import {
   IconButton,
   useBreakpointValue,
   Image,
-  Button,
 } from "@chakra-ui/react";
 import Slider from "react-slick";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { CTAButton } from "./CTAButton";
 
 // ** NÃO esqueça de importar os estilos abaixo **
 import "slick-carousel/slick/slick.css";
@@ -101,15 +101,7 @@ export default function Testimonials() {
           <Text fontSize="lg" mb={4} color="gray.800" fontWeight="semibold">
             Agora é a sua vez de transformar sua rotina!
           </Text>
-          <Button
-            size="lg"
-            colorScheme="orange"
-            px={8}
-            borderRadius="full"
-            shadow="md"
-          >
-            Quero começar hoje mesmo
-          </Button>
+          <CTAButton variant="primary">Quero começar hoje mesmo</CTAButton>
         </Box>
       </Container>
     </Box>

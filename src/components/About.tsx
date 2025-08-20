@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { CheckCircle } from "lucide-react";
 import { CRN } from "../constants";
+import { CTAButton } from "./CTAButton";
 
 export default function About() {
   return (
@@ -44,32 +45,27 @@ export default function About() {
           em conquistas reais e sustentáveis.
         </Text>
 
-        <SimpleGrid
-          columns={{ base: 1, md: 2 }}
-          spacing={10}
-          alignItems="center"
-        >
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems="center">
           {/* Texto */}
-          <Stack spacing={6} fontSize="lg" color="gray.800" order={{ base: 1, md: 0 }}>
+          <Stack spacing={6} fontSize="lg" color="gray.800">
             <Text>
               Ao longo da minha jornada, vivi experiências que me mostraram o
-              verdadeiro impacto da <b>disciplina e do foco</b>. Uma delas foi
-              o <b>fisiculturismo</b>, onde aprendi na prática que resultados
-              consistentes nascem da união entre ciência e dedicação.
+              verdadeiro impacto da <b>disciplina e do foco</b>. Uma delas foi o{" "}
+              <b>fisiculturismo</b>, onde aprendi na prática que resultados consistentes
+              nascem da união entre ciência e dedicação.
             </Text>
 
             <Text>
               Hoje, aplico esse aprendizado tanto para <b>atletas</b> quanto para{" "}
-              <b>pessoas comuns</b>, ajudando cada paciente a alcançar seu
-              máximo potencial — seja para <b>melhorar a performance nos
-              treinos</b> ou para <b>emagrecer com saúde e equilíbrio</b>.
+              <b>pessoas comuns</b>, ajudando cada paciente a alcançar seu máximo
+              potencial — seja para <b>melhorar a performance nos treinos</b> ou
+              para <b>emagrecer com saúde e equilíbrio</b>.
             </Text>
 
             <Text>
-              Meu propósito é mostrar que <b>nutrição não precisa ser
-              complicada</b>: com um plano alimentar adaptado à sua rotina,
-              acompanhamento próximo e estratégias inteligentes, você conquista
-              resultados que realmente duram.
+              Meu propósito é mostrar que <b>nutrição não precisa ser complicada</b>:
+              com um plano alimentar adaptado à sua rotina, acompanhamento próximo
+              e estratégias inteligentes, você conquista resultados que realmente duram.
             </Text>
 
             <List spacing={3}>
@@ -86,6 +82,9 @@ export default function About() {
                 Experiência prática em <b>alta performance e saúde</b>
               </ListItem>
             </List>
+
+          <CTAButton variant="primary">Agende sua consulta</CTAButton>
+
           </Stack>
 
           {/* Imagens */}
@@ -94,28 +93,26 @@ export default function About() {
             gap={6}
             justifyItems="center"
           >
-            <Box w="100%" maxW="300px" aspectRatio={3 / 4}>
-              <Image
-                src="/livia-posando.jpg"
-                alt="Livia Anjos em competição de fisiculturismo"
-                borderRadius="xl"
-                shadow="lg"
-                objectFit="cover"
-                w="100%"
-                h="100%"
-              />
-            </Box>
-            <Box w="100%" maxW="300px" aspectRatio={3 / 4}>
-              <Image
-                src="/livia-fisiculturista.jpg"
-                alt="Livia Anjos no palco de fisiculturismo"
-                borderRadius="xl"
-                shadow="lg"
-                objectFit="cover"
-                w="100%"
-                h="100%"
-              />
-            </Box>
+            <Image
+              src="/livia-posando.jpg"
+              alt="Livia Anjos em competição de fisiculturismo"
+              borderRadius="xl"
+              shadow="lg"
+              objectFit="cover"
+              h={{ base: "320px", md: "420px" }}
+              w="100%"
+              maxW="300px"
+            />
+            <Image
+              src="/livia-fisiculturista.jpg"
+              alt="Livia Anjos no palco de fisiculturismo"
+              borderRadius="xl"
+              shadow="lg"
+              objectFit="cover"
+              h={{ base: "320px", md: "420px" }}
+              w="100%"
+              maxW="300px"
+            />
           </Grid>
         </SimpleGrid>
       </Container>

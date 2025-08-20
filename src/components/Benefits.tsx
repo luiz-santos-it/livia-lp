@@ -1,5 +1,6 @@
-import { Box, Button, SimpleGrid, Stack, Text, Heading, HStack } from "@chakra-ui/react";
+import { Box, SimpleGrid, Stack, Text, Heading, HStack } from "@chakra-ui/react";
 import { Video, Stethoscope, CheckCircle2 } from "lucide-react";
+import { CTAButton } from "./CTAButton";
 
 const Feature = ({ children }: { children: React.ReactNode }) => (
   <HStack align="start" spacing={3}>
@@ -37,7 +38,7 @@ export default function ServiceOptions() {
         para acompanhar sua evolução e receber ajustes no plano alimentar sempre que necessário.
       </Text>
 
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} align="stretch">
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
         {/* Card Online */}
         <Box
           display="flex"
@@ -63,17 +64,8 @@ export default function ServiceOptions() {
             <Feature>Suporte direto pelo WhatsApp</Feature>
           </Stack>
 
-          <Button
-            mt="auto"
-            bg="brand.orange"
-            color="white"
-            size="lg"
-            w="100%"
-            fontWeight="bold"
-            _hover={{ bg: "orange.600" }}
-          >
-            Quero atendimento online
-          </Button>
+          <CTAButton variant="secondary">Quero atendimento online</CTAButton>
+
         </Box>
 
         {/* Card Presencial */}
@@ -102,17 +94,7 @@ export default function ServiceOptions() {
             <Feature>Acompanhamento no aplicativo + suporte via WhatsApp</Feature>
           </Stack>
 
-          <Button
-            mt="auto"
-            bg="brand.orange"
-            color="white"
-            size="lg"
-            w="100%"
-            fontWeight="bold"
-            _hover={{ bg: "orange.600" }}
-          >
-            Quero atendimento presencial
-          </Button>
+          <CTAButton variant="secondary">Quero atendimento presencial</CTAButton>
         </Box>
       </SimpleGrid>
     </Box>
