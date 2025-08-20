@@ -46,6 +46,35 @@ export default function About() {
         </Text>
 
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems="center">
+          {/* Imagens (primeiro no mobile, segundo no desktop) */}
+          <Grid
+            order={{ base: -1, md: 1 }}
+            templateColumns={{ base: "1fr", sm: "1fr 1fr" }}
+            gap={6}
+            justifyItems="center"
+          >
+            <Image
+              src="/livia-posando.jpg"
+              alt="Livia Anjos em competição de fisiculturismo"
+              borderRadius="xl"
+              shadow="lg"
+              objectFit="cover"
+              h={{ base: "320px", md: "420px" }}
+              w="100%"
+              maxW="300px"
+            />
+            <Image
+              src="/livia-fisiculturista.jpg"
+              alt="Livia Anjos no palco de fisiculturismo"
+              borderRadius="xl"
+              shadow="lg"
+              objectFit="cover"
+              h={{ base: "320px", md: "420px" }}
+              w="100%"
+              maxW="300px"
+            />
+          </Grid>
+
           {/* Texto */}
           <Stack spacing={6} fontSize="lg" color="gray.800">
             <Text>
@@ -83,37 +112,8 @@ export default function About() {
               </ListItem>
             </List>
 
-          <CTAButton variant="primary">Descubra como posso te ajudar</CTAButton>
-
+            <CTAButton variant="primary">Descubra como posso te ajudar</CTAButton>
           </Stack>
-
-          {/* Imagens */}
-          <Grid
-            templateColumns={{ base: "1fr", sm: "1fr 1fr" }}
-            gap={6}
-            justifyItems="center"
-          >
-            <Image
-              src="/livia-posando.jpg"
-              alt="Livia Anjos em competição de fisiculturismo"
-              borderRadius="xl"
-              shadow="lg"
-              objectFit="cover"
-              h={{ base: "320px", md: "420px" }}
-              w="100%"
-              maxW="300px"
-            />
-            <Image
-              src="/livia-fisiculturista.jpg"
-              alt="Livia Anjos no palco de fisiculturismo"
-              borderRadius="xl"
-              shadow="lg"
-              objectFit="cover"
-              h={{ base: "320px", md: "420px" }}
-              w="100%"
-              maxW="300px"
-            />
-          </Grid>
         </SimpleGrid>
       </Container>
     </Box>
