@@ -83,7 +83,7 @@ export default function About() {
               </ListItem>
             </List>
 
-          <CTAButton variant="primary">Agende sua consulta</CTAButton>
+          <CTAButton variant="primary">Descubra como posso te ajudar</CTAButton>
 
           </Stack>
 
