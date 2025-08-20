@@ -1,67 +1,76 @@
-import { Box, Container, Heading, SimpleGrid, HStack, Text } from "@chakra-ui/react";
+import { Box, Container, Heading, SimpleGrid, HStack, Text, Button } from "@chakra-ui/react";
+import { CheckCircle } from "lucide-react";
 
-const AppIcon = () => (
-  <Box as="span" aria-hidden="true">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <rect x="5" y="2" width="14" height="20" rx="2" stroke="#255D57" strokeWidth="2" />
-      <circle cx="12" cy="18" r="1" fill="#255D57" />
-    </svg>
-  </Box>
-);
-
-const Item = ({ icon, children }: { icon?: React.ReactNode; children: React.ReactNode }) => (
+const Item = ({ children }: { children: React.ReactNode }) => (
   <HStack align="start" spacing={4}>
-    {icon || <AppIcon />}
-    <Text fontSize="lg">{children}</Text>
+    <CheckCircle color="#E96E2F" size={22} /> {/* ícone moderno e laranja */}
+    <Text fontSize="lg" lineHeight="1.6">
+      {children}
+    </Text>
   </HStack>
 );
 
-export default function Benefits(){
+export default function Benefits() {
   return (
-    <Box as="section" bg="white" py={{ base: 10, md: 14 }}>
+    <Box
+      as="section"
+      bg="white"
+      py={{ base: 14, md: 20 }}
+      position="relative"
+      isolation="isolate"
+    >
       <Container maxW="6xl">
-        <Heading as="h2" size="xl" mb={8} color="brand.petrol">
-          Como posso te ajudar?
+        <Heading
+          as="h2"
+          size="xl"
+          mb={10}
+          color="brand.petrol"
+          textAlign="center"
+        >
+          Como posso te ajudar na sua jornada?
         </Heading>
 
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
-
           <Item>
-            <b>Plano alimentar exclusivo</b> — nada de copiar cardápios prontos: você terá um plano feito para o seu corpo, rotina e objetivos, disponível sempre no seu celular.
+            <b>Avaliação completa</b> — análise do seu histórico, rotina e objetivos para traçar um plano inicial 100% personalizado.
           </Item>
-
           <Item>
-            <b>Suporte próximo</b> — tire dúvidas a qualquer momento e receba ajustes sem esperar até a próxima consulta.
+            <b>Plano alimentar exclusivo</b> — nada de copiar cardápios prontos: tudo pensado para seu corpo, dia a dia e preferências.
           </Item>
-
           <Item>
-            <b>Acompanhamento inteligente</b> — gráficos, diário alimentar e registros do seu dia a dia para ver sua evolução de verdade.
+            <b>Acompanhamento inteligente</b> — gráficos, diário alimentar, registros do seu progresso e comparativos de evolução no app.
           </Item>
-
           <Item>
-            <b>Lembretes automáticos</b> — avisos para beber água, preparar refeições e manter a disciplina sem esforço.
+            <b>Lembretes automáticos</b> — notificações para beber água, preparar refeições e manter a disciplina com leveza.
           </Item>
-
           <Item>
-            <b>Receitas práticas</b> — sugestões fáceis, rápidas e adaptáveis, que mostram que é possível comer bem sem complicação.
+            <b>Receitas práticas</b> — ideias rápidas, fáceis e adaptáveis, que mostram que comer bem pode ser simples.
           </Item>
-
           <Item>
-            <b>Resultados sustentáveis</b> — estética, saúde e performance sem cair em dietas da moda que nunca funcionam.
+            <b>Resultados sustentáveis</b> — saúde, estética e performance com equilíbrio, sem dietas malucas.
           </Item>
-
         </SimpleGrid>
 
-        {/* Suspense + mini CTA */}
-        <Box textAlign="center" mt={10}>
-          <Text fontSize="xl" fontWeight="semibold" color="brand.petrol">
-            E o melhor: tudo isso na palma da sua mão, em um aplicativo exclusivo para você.
+        {/* CTA */}
+        <Box textAlign="center" mt={14}>
+          <Text fontSize="xl" fontWeight="semibold" color="brand.petrol" mb={3}>
+            Tudo isso reunido em um aplicativo exclusivo para você.
           </Text>
-          <Text fontSize="md" color="gray.600" mt={2}>
-            Assim fica fácil seguir, acompanhar e transformar sua rotina.
+          <Text fontSize="md" color="gray.600" mb={8}>
+            Acompanhe cada etapa, tire dúvidas diretamente comigo e receba ajustes sempre que precisar.
           </Text>
-        </Box>
 
+          <Button
+            as="a"
+            href="https://wa.me/5599999999999" // 👈 substitua pelo número correto
+            size="lg"
+            bg="brand.orange"
+            color="white"
+            _hover={{ bg: "orange.600" }}
+          >
+            Falar no WhatsApp agora 🚀
+          </Button>
+        </Box>
       </Container>
     </Box>
   );

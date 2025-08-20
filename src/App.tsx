@@ -14,9 +14,9 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <Testimonials />
         <About />
         <Benefits />
-        <Testimonials />
         <ScheduleCTA />
       </main>
       <Footer />
