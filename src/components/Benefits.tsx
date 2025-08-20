@@ -1,76 +1,126 @@
-import { Box, Container, Heading, SimpleGrid, HStack, Text, Button } from "@chakra-ui/react";
-import { CheckCircle } from "lucide-react";
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  SimpleGrid,
+  Stack,
+  HStack,
+  Icon,
+  Button,
+} from "@chakra-ui/react";
+import { Smartphone, Stethoscope, CheckCircle2 } from "lucide-react";
 
-const Item = ({ children }: { children: React.ReactNode }) => (
-  <HStack align="start" spacing={4}>
-    <CheckCircle color="#E96E2F" size={22} /> {/* ícone moderno e laranja */}
-    <Text fontSize="lg" lineHeight="1.6">
+const Feature = ({ children }: { children: React.ReactNode }) => (
+  <HStack align="start" spacing={3}>
+    <Icon as={CheckCircle2} color="brand.petrol" boxSize={5} />
+    <Text fontSize="md" color="gray.700" lineHeight="1.6">
       {children}
     </Text>
   </HStack>
 );
 
-export default function Benefits() {
+export default function Atendimento() {
   return (
-    <Box
-      as="section"
-      bg="white"
-      py={{ base: 14, md: 20 }}
-      position="relative"
-      isolation="isolate"
-    >
+    <Box as="section" bg="gray.50" py={{ base: 14, md: 20 }}>
       <Container maxW="6xl">
+        {/* Título */}
         <Heading
           as="h2"
           size="xl"
-          mb={10}
-          color="brand.petrol"
           textAlign="center"
+          color="brand.petrol"
+          mb={4}
         >
-          Como posso te ajudar na sua jornada?
+          Atendimento do seu jeito: Online ou Presencial
         </Heading>
+        <Text
+          textAlign="center"
+          fontSize="lg"
+          color="gray.600"
+          maxW="2xl"
+          mx="auto"
+          mb={12}
+        >
+          Em qualquer modalidade você terá <b>consulta inicial</b>,{" "}
+          <b>retornos periódicos</b> e acesso ao <b>aplicativo exclusivo</b> para
+          acompanhar sua evolução e ajustes no plano alimentar.
+        </Text>
 
+        {/* Cards */}
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
-          <Item>
-            <b>Avaliação completa</b> — análise do seu histórico, rotina e objetivos para traçar um plano inicial 100% personalizado.
-          </Item>
-          <Item>
-            <b>Plano alimentar exclusivo</b> — nada de copiar cardápios prontos: tudo pensado para seu corpo, dia a dia e preferências.
-          </Item>
-          <Item>
-            <b>Acompanhamento inteligente</b> — gráficos, diário alimentar, registros do seu progresso e comparativos de evolução no app.
-          </Item>
-          <Item>
-            <b>Lembretes automáticos</b> — notificações para beber água, preparar refeições e manter a disciplina com leveza.
-          </Item>
-          <Item>
-            <b>Receitas práticas</b> — ideias rápidas, fáceis e adaptáveis, que mostram que comer bem pode ser simples.
-          </Item>
-          <Item>
-            <b>Resultados sustentáveis</b> — saúde, estética e performance com equilíbrio, sem dietas malucas.
-          </Item>
-        </SimpleGrid>
-
-        {/* CTA */}
-        <Box textAlign="center" mt={14}>
-          <Text fontSize="xl" fontWeight="semibold" color="brand.petrol" mb={3}>
-            Tudo isso reunido em um aplicativo exclusivo para você.
-          </Text>
-          <Text fontSize="md" color="gray.600" mb={8}>
-            Acompanhe cada etapa, tire dúvidas diretamente comigo e receba ajustes sempre que precisar.
-          </Text>
-
-          <Button
-            as="a"
-            href="https://wa.me/5599999999999" // 👈 substitua pelo número correto
-            size="lg"
-            bg="brand.orange"
-            color="white"
-            _hover={{ bg: "orange.600" }}
+          {/* Online */}
+          <Box
+            bg="white"
+            p={8}
+            rounded="2xl"
+            shadow="md"
+            _hover={{ shadow: "xl", transform: "translateY(-4px)" }}
+            transition="all 0.3s"
           >
-            Falar no WhatsApp agora 🚀
-          </Button>
-        </Box>
+            <HStack spacing={3} mb={6}>
+              <Icon as={Smartphone} color="brand.orange" boxSize={7} />
+              <Heading size="md" color="brand.petrol">
+                Online
+              </Heading>
+            </HStack>
+
+            <Stack spacing={4} mb={8}>
+              <Feature>Consulta inicial por vídeo + retornos periódicos</Feature>
+              <Feature>Acompanhamento completo pelo aplicativo exclusivo</Feature>
+              <Feature>Ajustes no plano alimentar sempre que necessário</Feature>
+              <Feature>Suporte direto pelo WhatsApp</Feature>
+            </Stack>
+
+            <Button
+              as="a"
+              href="https://wa.me/5599999999999"
+              w="full"
+              size="lg"
+              bg="brand.orange"
+              color="white"
+              _hover={{ bg: "orange.600" }}
+            >
+              Quero atendimento online 📱
+            </Button>
+          </Box>
+
+          {/* Presencial */}
+          <Box
+            bg="white"
+            p={8}
+            rounded="2xl"
+            shadow="md"
+            _hover={{ shadow: "xl", transform: "translateY(-4px)" }}
+            transition="all 0.3s"
+          >
+            <HStack spacing={3} mb={6}>
+              <Icon as={Stethoscope} color="brand.orange" boxSize={7} />
+              <Heading size="md" color="brand.petrol">
+                Presencial
+              </Heading>
+            </HStack>
+
+            <Stack spacing={4} mb={8}>
+              <Feature>Consultas em consultório + retornos presenciais</Feature>
+              <Feature>Exame de bioimpedância para avaliação corporal</Feature>
+              <Feature>Ajustes imediatos no plano alimentar</Feature>
+              <Feature>Acompanhamento no aplicativo + suporte no WhatsApp</Feature>
+            </Stack>
+
+            <Button
+              as="a"
+              href="https://wa.me/5599999999999"
+              w="full"
+              size="lg"
+              bg="brand.orange"
+              color="white"
+              _hover={{ bg: "orange.600" }}
+            >
+              Quero atendimento presencial 🏥
+            </Button>
+          </Box>
+        </SimpleGrid>
       </Container>
     </Box>
   );

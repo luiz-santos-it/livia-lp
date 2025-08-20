@@ -6,6 +6,7 @@ import {
   IconButton,
   useBreakpointValue,
   Image,
+  Button,
 } from "@chakra-ui/react";
 import Slider from "react-slick";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
@@ -41,6 +42,7 @@ export default function Testimonials() {
   return (
     <Box as="section" bg="gray.50" py={{ base: 12, md: 16 }}>
       <Container maxW="6xl" position="relative">
+        {/* Título */}
         <Heading
           as="h2"
           size="xl"
@@ -51,6 +53,7 @@ export default function Testimonials() {
           Resultados que falam por si
         </Heading>
 
+        {/* Texto de apoio */}
         <Text
           fontSize="lg"
           textAlign="center"
@@ -59,9 +62,12 @@ export default function Testimonials() {
           maxW="2xl"
           mx="auto"
         >
-          Veja alguns relatos de quem já está vivendo os resultados na prática.
+          Histórias reais de pessoas que decidiram mudar seus hábitos e hoje já
+          colhem os benefícios. Inspirações para mostrar que você também pode
+          conquistar seus objetivos.
         </Text>
 
+        {/* Slider */}
         <Slider key={slidesToShow} {...settings}>
           {testimonials.map((t, i) => (
             <Box key={i} px={2} h="auto">
@@ -89,11 +95,28 @@ export default function Testimonials() {
             </Box>
           ))}
         </Slider>
+
+        {/* CTA final */}
+        <Box textAlign="center" mt={12}>
+          <Text fontSize="lg" mb={4} color="gray.800" fontWeight="semibold">
+            Agora é a sua vez de transformar sua rotina!
+          </Text>
+          <Button
+            size="lg"
+            colorScheme="orange"
+            px={8}
+            borderRadius="full"
+            shadow="md"
+          >
+            Quero começar hoje mesmo
+          </Button>
+        </Box>
       </Container>
     </Box>
   );
 }
 
+/* Custom arrows */
 function NextArrow(props: any) {
   const { onClick } = props;
   return (
