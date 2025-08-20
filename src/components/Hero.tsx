@@ -26,7 +26,7 @@ export default function HeroModern() {
     <Box
       as="section"
       bg={COLORS.cream}
-      pt={{ base: 14, md: 24 }}
+      pt={{ base: 12, md: 20 }}
       pb={{ base: 16, md: 28 }}
       position="relative"
     >
@@ -49,17 +49,29 @@ export default function HeroModern() {
               fontWeight="black"
               lineHeight="1.1"
             >
-              Nutrição que acolhe, transforma e entrega{" "}
-              <Box as="span" bgGradient="linear(to-r, teal.600, green.400)" bgClip="text">
+              Nutrição que{" "}
+              <Box as="span" color="teal.600">
+                acolhe
+              </Box>
+              ,{" "}
+              <Box as="span" color="orange.500">
+                transforma
+              </Box>{" "}
+              e entrega{" "}
+              <Box as="span" color="green.500">
                 resultados reais
               </Box>
             </Heading>
 
             <Text fontSize={{ base: "md", md: "lg" }} color="gray.700" maxW="lg">
-              Já tentou seguir dietas que não duraram? Aqui você encontra{" "}
-              <b>ciência</b> com <b>cuidado humano</b>, em um plano que respeita
-              sua história, sua rotina e seu ritmo. O objetivo é te ajudar a
-              conquistar saúde, energia e bem-estar — sem extremos.
+              Já tentou começar dietas que só trouxeram frustração? Sofreu com{" "}
+              <b>efeito sanfona</b>, <b>compulsão</b> ou falta de energia no seu
+              dia a dia? Aqui, você encontra <b>ciência com cuidado humano</b> —
+              em um plano que respeita sua história, sua rotina e seus objetivos.
+              Seja para vencer desafios como compulsão alimentar e perda de foco,
+              ou para alcançar <b>alta performance esportiva</b>, o objetivo é o
+              mesmo: ajudar você a conquistar saúde real, equilíbrio e resultados
+              duradouros.
             </Text>
 
             {/* Bullets */}
@@ -79,14 +91,14 @@ export default function HeroModern() {
             </Stack>
 
             {/* Badges minimalistas */}
-            <HStack spacing={4} flexWrap="wrap" pt={3}>
-              <Badge variant="outline" colorScheme="gray">
+            <HStack spacing={3} flexWrap="wrap" pt={2}>
+              <Badge variant="outline" colorScheme="orange">
                 {CRN}
               </Badge>
-              <Badge variant="outline" colorScheme="gray">
+              <Badge variant="outline" colorScheme="teal">
                 Salvador & Baixo Sul
               </Badge>
-              <Badge variant="outline" colorScheme="gray">
+              <Badge variant="outline" colorScheme="purple">
                 Online (Global)
               </Badge>
             </HStack>
@@ -107,7 +119,7 @@ export default function HeroModern() {
             <Box
               position="absolute"
               inset="-20px"
-              bg="radial-gradient(circle at 70% 30%, rgba(37,93,87,0.12), transparent 70%)"
+              bg="radial-gradient(circle at 70% 30%, rgba(37,93,87,0.15), transparent 70%)"
               borderRadius="full"
               zIndex={0}
             />
