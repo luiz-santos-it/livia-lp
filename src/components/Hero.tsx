@@ -63,30 +63,37 @@ export default function HeroModern() {
               </Box>
             </Heading>
 
-            <Text fontSize={{ base: "md", md: "lg" }} color="gray.700" maxW="lg">
-              Já tentou começar dietas que só trouxeram frustração? Sofreu com{" "}
-              <b>efeito sanfona</b>, <b>compulsão</b> ou falta de energia no seu
-              dia a dia? Aqui, você encontra <b>ciência com cuidado humano</b> —
-              em um plano que respeita sua história, sua rotina e seus objetivos.
-              Seja para vencer desafios como compulsão alimentar e perda de foco,
-              ou para alcançar <b>alta performance esportiva</b>, o objetivo é o
-              mesmo: ajudar você a conquistar saúde real, equilíbrio e resultados
-              duradouros.
-            </Text>
+            <Stack spacing={4}>
+              <Text fontSize={{ base: "md", md: "lg" }} color="gray.700" maxW="lg">
+                Já tentou mudar sua alimentação e acabou se sentindo preso em
+                ciclos de <b>restrição</b> ou <b>exageros</b>? Talvez até tenha
+                sentido falta de energia no dia a dia.  
+                Aqui, você encontra <b>ciência com cuidado humano</b> — em um plano
+                que respeita sua história, sua rotina e seus objetivos.
+              </Text>
+
+              <Text fontSize={{ base: "md", md: "lg" }} color="gray.700" maxW="lg">
+                Seja para viver com mais leveza, superar desafios com a comida ou
+                alcançar <b>alta performance esportiva</b> em modalidades como{" "}
+                <b>futevôlei, corrida, atletismo ou musculação</b>, o propósito é o
+                mesmo: apoiar você na conquista de saúde real, equilíbrio e
+                resultados duradouros — sem julgamentos e com acolhimento.
+              </Text>
+            </Stack>
 
             {/* Bullets */}
             <Stack spacing={3} fontSize={{ base: "md", md: "lg" }} color="gray.800">
               <HStack>
                 <Icon as={FiCheckCircle} color={COLORS.petrol} boxSize={5} />
-                <Text>Emagrecimento saudável, sem sofrimento</Text>
+                <Text>Emagrecimento saudável e sustentável</Text>
               </HStack>
               <HStack>
                 <Icon as={GiWeightLiftingUp} color={COLORS.petrol} boxSize={5} />
-                <Text>Performance esportiva com equilíbrio</Text>
+                <Text>Performance esportiva: energia, foco e recuperação</Text>
               </HStack>
               <HStack>
                 <Icon as={TbClipboardCheck} color={COLORS.petrol} boxSize={5} />
-                <Text>Plano alimentar feito para a sua vida real</Text>
+                <Text>Plano alimentar feito sob medida para a sua vida real</Text>
               </HStack>
             </Stack>
 
@@ -103,10 +110,12 @@ export default function HeroModern() {
               </Badge>
             </HStack>
 
-            {/* CTA */}
-            <CTAButton variant="primary">
-              Quero cuidar da minha saúde com ciência
-            </CTAButton>
+            {/* CTAs */}
+            <HStack spacing={4} pt={2} flexWrap="wrap">
+              <CTAButton variant="primary">
+                Quero cuidar da minha saúde com ciência
+              </CTAButton>
+            </HStack>
           </MotionStack>
 
           {/* Imagem */}
