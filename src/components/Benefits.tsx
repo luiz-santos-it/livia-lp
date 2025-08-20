@@ -1,127 +1,120 @@
-import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  SimpleGrid,
-  Stack,
-  HStack,
-  Icon,
-  Button,
-} from "@chakra-ui/react";
-import { Smartphone, Stethoscope, CheckCircle2 } from "lucide-react";
+import { Box, Button, SimpleGrid, Stack, Text, Heading, HStack } from "@chakra-ui/react";
+import { Video, Stethoscope, CheckCircle2 } from "lucide-react";
 
 const Feature = ({ children }: { children: React.ReactNode }) => (
   <HStack align="start" spacing={3}>
-    <Icon as={CheckCircle2} color="brand.petrol" boxSize={5} />
-    <Text fontSize="md" color="gray.700" lineHeight="1.6">
-      {children}
-    </Text>
+    <CheckCircle2 size={20} color="#0A9396" /> {/* Verde confiança */}
+    <Text color="gray.700">{children}</Text>
   </HStack>
 );
 
-export default function Atendimento() {
+export default function ServiceOptions() {
   return (
-    <Box as="section" bg="gray.50" py={{ base: 14, md: 20 }}>
-      <Container maxW="6xl">
-        {/* Título */}
-        <Heading
-          as="h2"
-          size="xl"
-          textAlign="center"
-          color="brand.petrol"
-          mb={4}
+    <Box py={20} px={6} maxW="7xl" mx="auto">
+      {/* Título */}
+      <Heading
+        as="h2"
+        fontSize={{ base: "2xl", md: "3xl" }}
+        fontWeight="bold"
+        textAlign="center"
+        mb={4}
+        color="brand.petrol"
+      >
+        Atendimento do seu jeito: Online ou Presencial
+      </Heading>
+
+      {/* Subtítulo */}
+      <Text
+        textAlign="center"
+        color="gray.600"
+        maxW="3xl"
+        mx="auto"
+        mb={12}
+        fontSize="lg"
+      >
+        Em qualquer modalidade você terá <b>consulta inicial</b>,{" "}
+        <b>retornos periódicos</b> e acesso ao <b>aplicativo exclusivo</b>{" "}
+        para acompanhar sua evolução e receber ajustes no plano alimentar sempre que necessário.
+      </Text>
+
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} align="stretch">
+        {/* Card Online */}
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          p={8}
+          borderRadius="2xl"
+          bgGradient="linear(to-br, white, teal.50)"
+          boxShadow="md"
+          _hover={{ boxShadow: "xl", transform: "translateY(-4px)", transition: "0.3s" }}
         >
-          Atendimento do seu jeito: Online ou Presencial
-        </Heading>
-        <Text
-          textAlign="center"
-          fontSize="lg"
-          color="gray.600"
-          maxW="2xl"
-          mx="auto"
-          mb={12}
+          <HStack mb={6} spacing={3}>
+            <Video color="#0A9396" size={26} />
+            <Heading as="h3" fontSize="xl" color="brand.petrol">
+              Online
+            </Heading>
+          </HStack>
+
+          <Stack spacing={3} mb={6}>
+            <Feature>Consulta inicial por vídeo + retornos periódicos</Feature>
+            <Feature>Acompanhamento completo pelo aplicativo exclusivo</Feature>
+            <Feature>Ajustes no plano alimentar sempre que necessário</Feature>
+            <Feature>Suporte direto pelo WhatsApp</Feature>
+          </Stack>
+
+          <Button
+            mt="auto"
+            bg="brand.orange"
+            color="white"
+            size="lg"
+            w="100%"
+            fontWeight="bold"
+            _hover={{ bg: "orange.600" }}
+          >
+            Quero atendimento online
+          </Button>
+        </Box>
+
+        {/* Card Presencial */}
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          p={8}
+          borderRadius="2xl"
+          bgGradient="linear(to-br, white, teal.50)"
+          boxShadow="md"
+          _hover={{ boxShadow: "xl", transform: "translateY(-4px)", transition: "0.3s" }}
         >
-          Em qualquer modalidade você terá <b>consulta inicial</b>,{" "}
-          <b>retornos periódicos</b> e acesso ao <b>aplicativo exclusivo</b> para
-          acompanhar sua evolução e ajustes no plano alimentar.
-        </Text>
+          <HStack mb={6} spacing={3}>
+            <Stethoscope color="#0A9396" size={26} />
+            <Heading as="h3" fontSize="xl" color="brand.petrol">
+              Presencial
+            </Heading>
+          </HStack>
 
-        {/* Cards */}
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
-          {/* Online */}
-          <Box
-            bg="white"
-            p={8}
-            rounded="2xl"
-            shadow="md"
-            _hover={{ shadow: "xl", transform: "translateY(-4px)" }}
-            transition="all 0.3s"
+          <Stack spacing={3} mb={6}>
+            <Feature>Consultas em consultório + retornos presenciais</Feature>
+            <Feature>Atendimento em <b>Salvador</b>, <b>Ituberá</b> e região do <b>Baixo Sul</b></Feature>
+            <Feature>Exame de bioimpedância para avaliação corporal</Feature>
+            <Feature>Ajustes imediatos no plano alimentar</Feature>
+            <Feature>Acompanhamento no aplicativo + suporte via WhatsApp</Feature>
+          </Stack>
+
+          <Button
+            mt="auto"
+            bg="brand.orange"
+            color="white"
+            size="lg"
+            w="100%"
+            fontWeight="bold"
+            _hover={{ bg: "orange.600" }}
           >
-            <HStack spacing={3} mb={6}>
-              <Icon as={Smartphone} color="brand.orange" boxSize={7} />
-              <Heading size="md" color="brand.petrol">
-                Online
-              </Heading>
-            </HStack>
-
-            <Stack spacing={4} mb={8}>
-              <Feature>Consulta inicial por vídeo + retornos periódicos</Feature>
-              <Feature>Acompanhamento completo pelo aplicativo exclusivo</Feature>
-              <Feature>Ajustes no plano alimentar sempre que necessário</Feature>
-              <Feature>Suporte direto pelo WhatsApp</Feature>
-            </Stack>
-
-            <Button
-              as="a"
-              href="https://wa.me/5599999999999"
-              w="full"
-              size="lg"
-              bg="brand.orange"
-              color="white"
-              _hover={{ bg: "orange.600" }}
-            >
-              Quero atendimento online 📱
-            </Button>
-          </Box>
-
-          {/* Presencial */}
-          <Box
-            bg="white"
-            p={8}
-            rounded="2xl"
-            shadow="md"
-            _hover={{ shadow: "xl", transform: "translateY(-4px)" }}
-            transition="all 0.3s"
-          >
-            <HStack spacing={3} mb={6}>
-              <Icon as={Stethoscope} color="brand.orange" boxSize={7} />
-              <Heading size="md" color="brand.petrol">
-                Presencial
-              </Heading>
-            </HStack>
-
-            <Stack spacing={4} mb={8}>
-              <Feature>Consultas em consultório + retornos presenciais</Feature>
-              <Feature>Exame de bioimpedância para avaliação corporal</Feature>
-              <Feature>Ajustes imediatos no plano alimentar</Feature>
-              <Feature>Acompanhamento no aplicativo + suporte no WhatsApp</Feature>
-            </Stack>
-
-            <Button
-              as="a"
-              href="https://wa.me/5599999999999"
-              w="full"
-              size="lg"
-              bg="brand.orange"
-              color="white"
-              _hover={{ bg: "orange.600" }}
-            >
-              Quero atendimento presencial 🏥
-            </Button>
-          </Box>
-        </SimpleGrid>
-      </Container>
+            Quero atendimento presencial
+          </Button>
+        </Box>
+      </SimpleGrid>
     </Box>
   );
 }
