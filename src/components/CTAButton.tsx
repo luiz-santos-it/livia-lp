@@ -34,21 +34,22 @@ export function CTAButton({
       break;
 
     case "secondary":
-        styles = {
-            bgGradient: "linear(to-r, teal.400, green.400)", // gradiente moderno
-            color: "white",
-            borderRadius: "full",
-            px: 7,
-            fontWeight: "semibold",
-            shadow: "md",
-            _hover: {
-            bgGradient: "linear(to-r, teal.500, green.500)",
-            transform: "scale(1.05)",
-            shadow: "xl",
-            },
-            _active: { transform: "scale(0.97)" },
-        };
-        break;
+    styles = {
+        bg: "teal.600", // tom próximo de verde petróleo
+        color: "white",
+        borderRadius: "full",
+        px: 7,
+        fontWeight: "semibold",
+        shadow: "md",
+        _hover: {
+        bg: "teal.700", // escurece no hover
+        transform: "scale(1.05)",
+        shadow: "xl",
+        },
+        _active: { transform: "scale(0.97)" },
+    };
+    break;
+
 
 
     case "outline":
