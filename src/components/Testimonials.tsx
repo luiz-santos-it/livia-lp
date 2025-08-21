@@ -17,10 +17,10 @@ import "slick-carousel/slick/slick-theme.css";
 
 const testimonials = [
   { src: "/relato1.jpg", alt: "Depoimento 1" },
-  { src: "/relato2.png", alt: "Depoimento 2" },
-  { src: "/relato3.png", alt: "Depoimento 3" },
-  { src: "/relato4.png", alt: "Depoimento 4" },
-  { src: "/relato5.png", alt: "Depoimento 5" },
+  { src: "/relato2.jpg", alt: "Depoimento 2" },
+  { src: "/relato5.jpg", alt: "Depoimento 3" },
+  { src: "/relato4.jpg", alt: "Depoimento 4" },
+  { src: "/relato3.jpg", alt: "Depoimento 5" },
 ];
 
 export default function Testimonials() {

@@ -3,7 +3,8 @@ export const COLORS = {
   orange: "#FF7A00",
   cream:  "#FDFBF7",
   text:   "#111111",
-  whats:  "#25D366"
+  whats:  "#25D366",
+  green:  "#6BBF59" 
 } as const;
 
 export const WHATS_LINK = "https://wa.me/message/QNG6NJJNZTVLB1";
