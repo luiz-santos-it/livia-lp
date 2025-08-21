@@ -38,7 +38,7 @@ export default function HeroModern() {
         >
           {/* Coluna da Imagem */}
           <MotionBox
-            order={{ base: -1, md: 0 }} // imagem vem antes do texto no mobile
+            order={{ base: -1, md: 0 }}
             position="relative"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -81,21 +81,13 @@ export default function HeroModern() {
               lineHeight="1.2"
               textAlign={{ base: "center", md: "left" }}
             >
-              Nutrição que{" "}
+              Nutrição que acolhe, transforma e entrega{" "}
               <Box as="span" color="teal.600">
-                acolhe
-              </Box>
-              ,{" "}
-              <Box as="span" color="orange.500">
-                transforma
-              </Box>{" "}
-              e entrega{" "}
-              <Box as="span" color="green.500">
                 resultados reais
               </Box>
             </Heading>
 
-            {/* CTA principal no mobile logo após o título */}
+            {/* CTA principal no mobile */}
             <Box display={{ base: "flex", md: "none" }} justifyContent="center">
               <CTAButton variant="primary" size="lg">
                 Agende sua consulta
@@ -126,25 +118,34 @@ export default function HeroModern() {
             </VStack>
 
             {/* Bullets */}
-            <Stack spacing={3} fontSize={{ base: "md", md: "lg" }} color="gray.800">
+            <Stack
+              spacing={3}
+              fontSize={{ base: "md", md: "lg" }}
+              color="gray.800"
+            >
               <HStack>
-                <Icon as={FiCheckCircle} color={COLORS.petrol} boxSize={5} />
+                <Icon as={FiCheckCircle} color="gray.600" boxSize={5} />
                 <Text>Emagrecimento saudável e sustentável</Text>
               </HStack>
               <HStack>
-                <Icon as={GiWeightLiftingUp} color={COLORS.petrol} boxSize={5} />
+                <Icon as={GiWeightLiftingUp} color="gray.600" boxSize={5} />
                 <Text>Performance esportiva: energia, foco e recuperação</Text>
               </HStack>
               <HStack>
-                <Icon as={TbClipboardCheck} color={COLORS.petrol} boxSize={5} />
+                <Icon as={TbClipboardCheck} color="gray.600" boxSize={5} />
                 <Text>Plano alimentar feito sob medida para a sua vida real</Text>
               </HStack>
             </Stack>
 
             {/* CTAs Secundários */}
-            <HStack spacing={4} pt={2} flexWrap="wrap" justify={{ base: "center", md: "flex-start" }}>
+            <HStack
+              spacing={4}
+              pt={2}
+              flexWrap="wrap"
+              justify={{ base: "center", md: "flex-start" }}
+            >
               <CTAButton variant="primary">Quero cuidar da minha saúde</CTAButton>
-              <CTAButton variant="secondary">Conhecer histórias reais de pacientes</CTAButton>
+              <CTAButton variant="outline">Conhecer histórias reais</CTAButton>
             </HStack>
           </MotionStack>
         </SimpleGrid>
