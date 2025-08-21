@@ -2,15 +2,11 @@ import {
   Box,
   Container,
   HStack,
-  Button,
-  IconButton,
   Spacer,
   useBreakpointValue,
-  Image,
 } from "@chakra-ui/react";
 import Logo from "./Logo";
 import { WHATS_LINK, METHOD_NAME } from "../constants";
-import { trackWhatsClick } from "../utils/analytics";
 import { CTAButton } from "./CTAButton";
 
 export default function Header() {
@@ -45,24 +41,6 @@ export default function Header() {
           </Box>
 
           <Spacer />
-
-          {/* Ícone-only no mobile */}
-          <IconButton
-            aria-label="Agendar no WhatsApp"
-            as="a"
-            href={waLink}
-            target="_blank"
-            rel="noopener"
-            size="sm"
-            onClick={() => trackWhatsClick("header_icon")}
-            bg="#00897B"
-            color="white"
-            _hover={{ bg: "#00796B", transform: "translateY(-1px)" }}
-            _active={{ bg: "#00695C" }}
-            icon={<Image src="/whatsapp.png" alt="WhatsApp" boxSize={5} />}
-            display={{ base: "inline-flex", sm: "none" }}
-            rounded="full"
-          />
 
           <CTAButton variant="secondary">{ctaLabel}</CTAButton>
         </HStack>

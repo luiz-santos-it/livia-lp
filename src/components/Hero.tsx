@@ -8,6 +8,7 @@ import {
   Box,
   HStack,
   Icon,
+  VStack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FiCheckCircle } from "react-icons/fi";
@@ -25,98 +26,19 @@ export default function HeroModern() {
     <Box
       as="section"
       bg={COLORS.cream}
-      pt={{ base: 12, md: 20 }}
+      pt={{ base: 8, md: 20 }}
       pb={{ base: 16, md: 28 }}
       position="relative"
     >
       <Container maxW="7xl">
         <SimpleGrid
           columns={{ base: 1, md: 2 }}
-          spacing={{ base: 12, md: 20 }}
+          spacing={{ base: 10, md: 20 }}
           alignItems="center"
         >
-          {/* Texto */}
-          <MotionStack
-            spacing={{ base: 6, md: 8 }}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <Heading
-              as="h1"
-              fontSize={{ base: "3xl", md: "5xl" }}
-              fontWeight="black"
-              lineHeight="1.1"
-            >
-              Nutrição que{" "}
-              <Box as="span" color="teal.600">
-                acolhe
-              </Box>
-              ,{" "}
-              <Box as="span" color="orange.500">
-                transforma
-              </Box>{" "}
-              e entrega{" "}
-              <Box as="span" color="green.500">
-                resultados reais
-              </Box>
-            </Heading>
-
-            {/* Parágrafo 1 */}
-            <Text
-              fontSize={{ base: "md", md: "lg" }}
-              lineHeight="1.6"
-              color="gray.700"
-              maxW="lg"
-            >
-              Já tentou mudar sua alimentação e acabou em ciclos de{" "}
-              <b>restrição</b> ou <b>exageros</b>? Aqui você encontra{" "}
-              <b>ciência com cuidado humano</b> — em um plano que respeita sua
-              rotina e seus objetivos.
-            </Text>
-
-            {/* Parágrafo 2 */}
-            <Text
-              fontSize={{ base: "md", md: "lg" }}
-              lineHeight="1.6"
-              color="gray.700"
-              maxW="lg"
-            >
-              Seja para viver com mais leveza ou alcançar{" "}
-              <b>performance esportiva</b>, o propósito é
-              o mesmo: apoiar você na conquista de saúde real, equilíbrio e
-              resultados duradouros — sempre com acolhimento.
-            </Text>
-
-            {/* Bullets */}
-            <Stack spacing={3} fontSize={{ base: "md", md: "lg" }} color="gray.800">
-              <HStack>
-                <Icon as={FiCheckCircle} color={COLORS.petrol} boxSize={5} />
-                <Text>Emagrecimento saudável e sustentável</Text>
-              </HStack>
-              <HStack>
-                <Icon as={GiWeightLiftingUp} color={COLORS.petrol} boxSize={5} />
-                <Text>Performance esportiva: energia, foco e recuperação</Text>
-              </HStack>
-              <HStack>
-                <Icon as={TbClipboardCheck} color={COLORS.petrol} boxSize={5} />
-                <Text>Plano alimentar feito sob medida para a sua vida real</Text>
-              </HStack>
-            </Stack>
-
-            {/* CTAs */}
-            <HStack spacing={4} pt={2} flexWrap="wrap">
-              <CTAButton variant="primary">
-                Quero cuidar da minha saúde com ciência
-              </CTAButton>
-              <CTAButton variant="secondary">
-                Conhecer histórias reais de pacientes
-              </CTAButton>
-            </HStack>
-          </MotionStack>
-
-          {/* Imagem */}
+          {/* Coluna da Imagem */}
           <MotionBox
+            order={{ base: -1, md: 0 }} // imagem vem antes do texto no mobile
             position="relative"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -136,13 +58,95 @@ export default function HeroModern() {
               shadow="2xl"
               loading="lazy"
               w="100%"
-              maxW="420px"
+              maxW={{ base: "300px", md: "420px" }}
               h="auto"
               objectFit="cover"
               zIndex={1}
               mx="auto"
             />
           </MotionBox>
+
+          {/* Coluna do Texto */}
+          <MotionStack
+            spacing={{ base: 5, md: 8 }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            {/* Título */}
+            <Heading
+              as="h1"
+              fontSize={{ base: "2xl", md: "5xl" }}
+              fontWeight="black"
+              lineHeight="1.2"
+              textAlign={{ base: "center", md: "left" }}
+            >
+              Nutrição que{" "}
+              <Box as="span" color="teal.600">
+                acolhe
+              </Box>
+              ,{" "}
+              <Box as="span" color="orange.500">
+                transforma
+              </Box>{" "}
+              e entrega{" "}
+              <Box as="span" color="green.500">
+                resultados reais
+              </Box>
+            </Heading>
+
+            {/* CTA principal no mobile logo após o título */}
+            <Box display={{ base: "flex", md: "none" }} justifyContent="center">
+              <CTAButton variant="primary" size="lg">
+                Agende sua consulta
+              </CTAButton>
+            </Box>
+
+            {/* Texto descritivo */}
+            <VStack
+              spacing={4}
+              align="start"
+              color="gray.700"
+              fontSize={{ base: "md", md: "lg" }}
+              lineHeight="1.6"
+              maxW="lg"
+            >
+              <Text textAlign={{ base: "center", md: "left" }}>
+                Já tentou mudar sua alimentação e acabou em ciclos de{" "}
+                <b>restrição</b> ou <b>exageros</b>? Aqui você encontra{" "}
+                <b>ciência com cuidado humano</b> — em um plano que respeita sua
+                rotina e seus objetivos.
+              </Text>
+              <Text textAlign={{ base: "center", md: "left" }}>
+                Seja para viver com mais leveza ou alcançar{" "}
+                <b>performance esportiva</b>, o propósito é o mesmo: apoiar você
+                na conquista de saúde real, equilíbrio e resultados duradouros —
+                sempre com acolhimento.
+              </Text>
+            </VStack>
+
+            {/* Bullets */}
+            <Stack spacing={3} fontSize={{ base: "md", md: "lg" }} color="gray.800">
+              <HStack>
+                <Icon as={FiCheckCircle} color={COLORS.petrol} boxSize={5} />
+                <Text>Emagrecimento saudável e sustentável</Text>
+              </HStack>
+              <HStack>
+                <Icon as={GiWeightLiftingUp} color={COLORS.petrol} boxSize={5} />
+                <Text>Performance esportiva: energia, foco e recuperação</Text>
+              </HStack>
+              <HStack>
+                <Icon as={TbClipboardCheck} color={COLORS.petrol} boxSize={5} />
+                <Text>Plano alimentar feito sob medida para a sua vida real</Text>
+              </HStack>
+            </Stack>
+
+            {/* CTAs Secundários */}
+            <HStack spacing={4} pt={2} flexWrap="wrap" justify={{ base: "center", md: "flex-start" }}>
+              <CTAButton variant="primary">Quero cuidar da minha saúde</CTAButton>
+              <CTAButton variant="secondary">Conhecer histórias reais de pacientes</CTAButton>
+            </HStack>
+          </MotionStack>
         </SimpleGrid>
       </Container>
     </Box>
