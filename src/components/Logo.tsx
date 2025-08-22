@@ -1,13 +1,25 @@
 import { HStack, Text, Box } from "@chakra-ui/react";
-import { FaLeaf } from "react-icons/fa";  // ícone de folha seguro
 import { COLORS } from "../constants";
 
-export default function Logo() {
+type Props = {
+  size?: number;
+};
+
+export default function Logo({ size = 64 }: Props) {
   return (
-    <HStack spacing={3}>
-      <Box position="relative" w="64px" h="64px">
-        {/* Círculo */}
-        <svg width="64" height="64" viewBox="0 0 100 100">
+    <HStack
+      as="a"
+      href="#top"
+      spacing={3}
+      cursor="pointer"
+      onClick={(e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
+    >
+      <Box w={`${size}px`} h={`${size}px`}>
+        <svg width={size} height={size} viewBox="0 0 100 100">
+          {/* Círculo moderno */}
           <circle
             cx="50"
             cy="50"
@@ -19,6 +31,8 @@ export default function Logo() {
             strokeDasharray="240"
             strokeDashoffset="60"
           />
+
+          {/* Monograma */}
           <text
             x="38"
             y="57"
@@ -42,22 +56,23 @@ export default function Logo() {
             A
           </text>
         </svg>
-
-        {/* Folha sobreposta */}
-        <Box
-          position="absolute"
-          left="46%"
-          top="32%"
-          color={COLORS.green}
-        >
-          <FaLeaf size={18} />
-        </Box>
       </Box>
 
-      <Text fontFamily="Poppins" fontWeight="700" fontSize="lg" color={COLORS.orange}>
+      {/* Nome + tagline */}
+      <Text
+        fontFamily="Poppins"
+        fontWeight="700"
+        fontSize="lg"
+        color={COLORS.orange}
+      >
         Livia Anjos
       </Text>
-      <Text fontFamily="Lato" fontSize="sm" color={COLORS.petrol} letterSpacing="0.18em">
+      <Text
+        fontFamily="Lato"
+        fontSize="sm"
+        color={COLORS.petrol}
+        letterSpacing="0.18em"
+      >
         NUTRICIONISTA
       </Text>
     </HStack>

@@ -40,7 +40,7 @@ export default function Testimonials() {
   };
 
   return (
-    <Box as="section" bg="gray.50" py={{ base: 12, md: 16 }}>
+    <Box as="section"  id="testimonials"  bg="gray.50" py={{ base: 12, md: 16 }}>
       <Container maxW="6xl" position="relative">
         {/* Título */}
         <Heading

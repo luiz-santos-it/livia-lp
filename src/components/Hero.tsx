@@ -145,7 +145,7 @@ export default function HeroModern() {
               justify={{ base: "center", md: "flex-start" }}
             >
               <CTAButton variant="primary">Quero cuidar da minha saúde</CTAButton>
-              <CTAButton variant="outline">Conhecer histórias reais</CTAButton>
+              <CTAButton variant="outline" href="#testimonials">Conhecer histórias reais</CTAButton>
             </HStack>
           </MotionStack>
         </SimpleGrid>

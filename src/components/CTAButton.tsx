@@ -1,8 +1,10 @@
 import { Button, type ButtonProps } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import React from "react";
 
 interface CTAButtonProps extends ButtonProps {
   variant?: "primary" | "secondary" | "outline";
+  href?: string; 
   children: React.ReactNode;
 }
 
@@ -11,6 +13,7 @@ const MotionButton = motion(Button);
 export function CTAButton({
   children,
   variant = "primary",
+  href,
   ...props
 }: CTAButtonProps) {
   let styles: ButtonProps = {};
@@ -34,23 +37,21 @@ export function CTAButton({
       break;
 
     case "secondary":
-    styles = {
-        bg: "teal.600", // tom próximo de verde petróleo
+      styles = {
+        bg: "teal.600",
         color: "white",
         borderRadius: "full",
         px: 7,
         fontWeight: "semibold",
         shadow: "md",
         _hover: {
-        bg: "teal.700", // escurece no hover
-        transform: "scale(1.05)",
-        shadow: "xl",
+          bg: "teal.700",
+          transform: "scale(1.05)",
+          shadow: "xl",
         },
         _active: { transform: "scale(0.97)" },
-    };
-    break;
-
-
+      };
+      break;
 
     case "outline":
       styles = {
@@ -75,6 +76,8 @@ export function CTAButton({
 
   return (
     <MotionButton
+      as={href ? "a" : undefined} // se tiver href, vira <a>
+      href={href}
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.15 }}
       size="lg"
