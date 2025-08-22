@@ -61,14 +61,18 @@ export function CTAButton({
         color: "orange.500",
         borderColor: "orange.400",
         fontWeight: "semibold",
+        transition: "all 0.2s ease-in-out",
         _hover: {
           bg: "orange.50",
-          borderColor: "orange.500",
-          transform: "scale(1.05)",
+          color: "orange.600",         // muda cor do texto
+          borderColor: "orange.500",   // borda mais forte
+          transform: "scale(1.05)",    // cresce levemente
+          shadow: "md",                // adiciona sombra
         },
         _active: { transform: "scale(0.97)" },
       };
       break;
+
 
     default:
       styles = {};
