@@ -3,26 +3,14 @@ import {
   Container,
   HStack,
   Spacer,
-  useBreakpointValue,
-  VStack,
 } from "@chakra-ui/react";
 import { FiCalendar } from "react-icons/fi";
 import Logo from "./Logo";
-import { WHATS_LINK, METHOD_NAME } from "../constants";
 import { CTAButton } from "./CTAButton";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 export default function Header() {
-  const ctaLabel = useBreakpointValue({
-    base: "Agende sua consulta",
-    sm: "Agende sua consulta",
-  });
 
-  const isMobile = useBreakpointValue({ base: true, md: false });
-
-  const msg = encodeURIComponent(
-    `Oi! Quero informações do ${METHOD_NAME} e disponibilidade :)`
-  );
-  const waLink = `${WHATS_LINK}?text=${msg}`;
 
   return (
     <Box
@@ -39,27 +27,11 @@ export default function Header() {
       }}
     >
       <Container maxW="6xl" py={2}>
-        {isMobile ? (
-          <VStack spacing={2} align="stretch">
-            {/* Logo centralizado */}
-            <HStack justify="space-between" w="full">
-              <Logo />
-            </HStack>
-
-            {/* Botão compacto no mobile */}
-            <CTAButton
-              as="a"
-              href={waLink}
-              variant="secondary"
-              size="sm"
-              w="auto"
-              mx="auto"
-              px={4}
-              leftIcon={<FiCalendar />}
-            >
-              {ctaLabel}
-            </CTAButton>
-          </VStack>
+        {useIsMobile() ? (
+          <HStack justify="space-between" w="full">
+            <Logo />
+            {/* no button on mobile */}
+          </HStack>
         ) : (
           <HStack gap={3}>
             <Box minW={0}>
@@ -68,14 +40,9 @@ export default function Header() {
 
             <Spacer />
 
-            {/* Botão maior no desktop */}
-            <CTAButton
-              as="a"
-              href={waLink}
-              variant="secondary"
-              leftIcon={<FiCalendar />}
-            >
-              {ctaLabel}
+            {/* Botão com texto no desktop */}
+            <CTAButton as="a" variant="secondary" leftIcon={<FiCalendar />}>
+              Agende sua consulta
             </CTAButton>
           </HStack>
         )}
