@@ -11,7 +11,7 @@ import {
   ListIcon,
   ListItem,
 } from "@chakra-ui/react";
-import { CheckCircle } from "lucide-react";
+import { FaCheckCircle } from "react-icons/fa"; 
 import { CRN } from "../constants";
 import { CTAButton } from "./CTAButton";
 
@@ -46,7 +46,7 @@ export default function About() {
         </Text>
 
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems="center">
-          {/* Imagens (primeiro no mobile, segundo no desktop) */}
+          {/* Imagens */}
           <Grid
             order={{ base: -1, md: 1 }}
             templateColumns={{ base: "1fr", sm: "1fr 1fr" }}
@@ -99,15 +99,15 @@ export default function About() {
 
             <List spacing={3}>
               <ListItem>
-                <ListIcon as={CheckCircle} color="brand.petrol" />
+                <ListIcon as={FaCheckCircle} color="brand.petrol" />
                 Planos alimentares <b>100% personalizados</b> para sua rotina
               </ListItem>
               <ListItem>
-                <ListIcon as={CheckCircle} color="brand.petrol" />
+                <ListIcon as={FaCheckCircle} color="brand.petrol" />
                 Acompanhamento <b>próximo, humano e motivador</b>
               </ListItem>
               <ListItem>
-                <ListIcon as={CheckCircle} color="brand.petrol" />
+                <ListIcon as={FaCheckCircle} color="brand.petrol" />
                 Experiência prática em <b>alta performance e saúde</b>
               </ListItem>
             </List>

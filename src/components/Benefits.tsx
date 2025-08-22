@@ -1,10 +1,10 @@
 import { Box, SimpleGrid, Stack, Text, Heading, HStack } from "@chakra-ui/react";
-import { Video, Stethoscope, CheckCircle2 } from "lucide-react";
+import { FaVideo, FaStethoscope, FaCheckCircle } from "react-icons/fa";
 import { CTAButton } from "./CTAButton";
 
 const Feature = ({ children }: { children: React.ReactNode }) => (
   <HStack align="start" spacing={3}>
-    <CheckCircle2 size={20} color="#0A9396" /> {/* Verde confiança */}
+    <FaCheckCircle size={20} color="#0A9396" /> {/* Verde confiança */}
     <Text color="gray.700">{children}</Text>
   </HStack>
 );
@@ -48,10 +48,14 @@ export default function ServiceOptions() {
           borderRadius="2xl"
           bgGradient="linear(to-br, white, teal.50)"
           boxShadow="md"
-          _hover={{ boxShadow: "xl", transform: "translateY(-4px)", transition: "0.3s" }}
+          _hover={{
+            boxShadow: "xl",
+            transform: "translateY(-4px)",
+            transition: "0.3s",
+          }}
         >
           <HStack mb={6} spacing={3}>
-            <Video color="#0A9396" size={26} />
+            <FaVideo color="#0A9396" size={26} />
             <Heading as="h3" fontSize="xl" color="brand.petrol">
               Online
             </Heading>
@@ -65,7 +69,6 @@ export default function ServiceOptions() {
           </Stack>
 
           <CTAButton variant="secondary">Quero atendimento online</CTAButton>
-
         </Box>
 
         {/* Card Presencial */}
@@ -77,10 +80,14 @@ export default function ServiceOptions() {
           borderRadius="2xl"
           bgGradient="linear(to-br, white, teal.50)"
           boxShadow="md"
-          _hover={{ boxShadow: "xl", transform: "translateY(-4px)", transition: "0.3s" }}
+          _hover={{
+            boxShadow: "xl",
+            transform: "translateY(-4px)",
+            transition: "0.3s",
+          }}
         >
           <HStack mb={6} spacing={3}>
-            <Stethoscope color="#0A9396" size={26} />
+            <FaStethoscope color="#0A9396" size={26} />
             <Heading as="h3" fontSize="xl" color="brand.petrol">
               Presencial
             </Heading>
@@ -88,7 +95,9 @@ export default function ServiceOptions() {
 
           <Stack spacing={3} mb={6}>
             <Feature>Consultas em consultório + retornos presenciais</Feature>
-            <Feature>Atendimento em <b>Salvador</b>, <b>Ituberá</b> e região do <b>Baixo Sul</b></Feature>
+            <Feature>
+              Atendimento em <b>Salvador</b>, <b>Ituberá</b> e região do <b>Baixo Sul</b>
+            </Feature>
             <Feature>Exame de bioimpedância para avaliação corporal</Feature>
             <Feature>Ajustes imediatos no plano alimentar</Feature>
             <Feature>Acompanhamento no aplicativo + suporte via WhatsApp</Feature>
