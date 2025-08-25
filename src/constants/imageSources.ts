@@ -4,7 +4,6 @@ export type ImageSources = {
   sizes?: string; // <img sizes="...">
   webp?: RasterMap;
   jpg?:  RasterMap;
-  png?:  RasterMap;
 };
 
 export const IMAGES = {
