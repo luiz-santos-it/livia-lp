@@ -8,6 +8,6 @@ export const COLORS = {
 } as const;
 
 export const WHATS_LINK = "https://wa.me/message/QNG6NJJNZTVLB1";
-export const INSTAGRAM  = "https://instagram.com/nutrianjoos";
+export const INSTAGRAM_LINK  = "https://instagram.com/nutrianjoos";
 export const CRN        = "CRN-22849/P"; 
 export const METHOD_NAME = "Método NutriPódio";

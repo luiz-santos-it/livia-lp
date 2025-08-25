@@ -1,5 +1,5 @@
 import { Box, Container, HStack, Text, Link } from "@chakra-ui/react";
-import { INSTAGRAM } from "../constants";
+import { INSTAGRAM_LINK } from "../constants";
 import Logo from "./Logo";
 
 export default function Footer(){
@@ -10,7 +10,7 @@ export default function Footer(){
           <Logo withName={false} />
           <Text textAlign="center">Atendimento presencial em Salvador e Baixo Sul (ex.: Ituberá). Online para todo o mundo.</Text>
           <HStack>
-            <Link href={INSTAGRAM} target="_blank" rel="noopener" color="brand.petrol" fontWeight="700">
+            <Link href={INSTAGRAM_LINK} target="_blank" rel="noopener" color="brand.petrol" fontWeight="700">
               @nutrianjoos
             </Link>
           </HStack>

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { INSTAGRAM, CRN } from "../constants";
+import { INSTAGRAM_LINK, CRN } from "../constants";
 
 type Props = { children: ReactNode };
 
@@ -23,7 +23,7 @@ const Seo = ({ children }: Props) => (
           medicalSpecialty: ["Nutrition","SportsMedicine"],
           identifier: { "@type": "PropertyValue", propertyID: "CRN", value: CRN },
           areaServed: ["Online (Global)","Salvador-BA","Baixo Sul-BA"],
-          sameAs: [INSTAGRAM]
+          sameAs: [INSTAGRAM_LINK]
         })}
       </script>
     </Helmet>
