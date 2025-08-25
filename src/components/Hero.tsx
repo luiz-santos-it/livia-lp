@@ -10,7 +10,7 @@ import {
   Icon,
   VStack,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { FiCheckCircle } from "react-icons/fi";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import { TbClipboardCheck } from "react-icons/tb";
@@ -21,7 +21,26 @@ import { CTAButton } from "./CTAButton";
 const MotionBox = motion(Box);
 const MotionStack = motion(Stack);
 
+// ====== copy centralizada ======
+const HERO_COPY = {
+  titlePrefix: "Nutrição que acolhe, transforma e entrega ",
+  titleHighlight: "resultados reais",
+  p1: `Já tentou mudar sua alimentação e acabou em ciclos de restrição ou exageros? 
+      Aqui você encontra ciência com cuidado humano — em um plano que respeita sua rotina e seus objetivos.`,
+  p2: `Seja para viver com mais leveza ou alcançar performance esportiva, o propósito é o mesmo: 
+      apoiar você na conquista de saúde real, equilíbrio e resultados duradouros — sempre com acolhimento.`,
+};
+
+const BULLETS = [
+  { icon: FiCheckCircle, text: "Emagrecimento saudável e sustentável" },
+  { icon: GiWeightLiftingUp, text: "Performance esportiva: energia, foco e recuperação" },
+  { icon: TbClipboardCheck, text: "Plano alimentar feito sob medida para a sua vida real" },
+];
+// ===============================
+
 export default function HeroModern() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <Box
       as="section"
@@ -29,6 +48,7 @@ export default function HeroModern() {
       pt={{ base: 8, md: 20 }}
       pb={{ base: 16, md: 28 }}
       position="relative"
+      aria-labelledby="hero-title"
     >
       <Container maxW="7xl">
         <SimpleGrid
@@ -40,8 +60,8 @@ export default function HeroModern() {
           <MotionBox
             order={{ base: -1, md: 0 }}
             position="relative"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={reduceMotion ? undefined : { opacity: 0, scale: 0.9 }}
+            animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <Box
@@ -50,6 +70,7 @@ export default function HeroModern() {
               bg="radial-gradient(circle at 70% 30%, rgba(37,93,87,0.15), transparent 70%)"
               borderRadius="full"
               zIndex={0}
+              aria-hidden="true"
             />
             <Image
               src={fotoLivia}
@@ -63,33 +84,41 @@ export default function HeroModern() {
               objectFit="cover"
               zIndex={1}
               mx="auto"
+              decoding="async"
             />
           </MotionBox>
 
           {/* Coluna do Texto */}
           <MotionStack
             spacing={{ base: 5, md: 8 }}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={reduceMotion ? undefined : { opacity: 0, y: 40 }}
+            animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
             {/* Título */}
             <Heading
+              id="hero-title"
               as="h1"
               fontSize={{ base: "2xl", md: "5xl" }}
               fontWeight="black"
               lineHeight="1.2"
               textAlign={{ base: "center", md: "left" }}
             >
-              Nutrição que acolhe, transforma e entrega{" "}
+              {HERO_COPY.titlePrefix}
               <Box as="span" color="teal.600">
-                resultados reais
+                {HERO_COPY.titleHighlight}
               </Box>
             </Heading>
 
             {/* CTA principal no mobile */}
             <Box display={{ base: "flex", md: "none" }} justifyContent="center">
-              <CTAButton variant="primary" size="lg">
+              <CTAButton
+                variant="primary"
+                size="lg"
+                aria-label="Agende sua consulta"
+                data-cta="hero-mobile"
+                type="button"
+              >
                 Agende sua consulta
               </CTAButton>
             </Box>
@@ -103,38 +132,26 @@ export default function HeroModern() {
               lineHeight="1.6"
               maxW="lg"
             >
-              <Text textAlign={{ base: "center", md: "left" }}>
-                Já tentou mudar sua alimentação e acabou em ciclos de{" "}
-                <b>restrição</b> ou <b>exageros</b>? Aqui você encontra{" "}
-                <b>ciência com cuidado humano</b> — em um plano que respeita sua
-                rotina e seus objetivos.
-              </Text>
-              <Text textAlign={{ base: "center", md: "left" }}>
-                Seja para viver com mais leveza ou alcançar{" "}
-                <b>performance esportiva</b>, o propósito é o mesmo: apoiar você
-                na conquista de saúde real, equilíbrio e resultados duradouros —
-                sempre com acolhimento.
-              </Text>
+              <Text textAlign={{ base: "center", md: "left" }}>{HERO_COPY.p1}</Text>
+              <Text textAlign={{ base: "center", md: "left" }}>{HERO_COPY.p2}</Text>
             </VStack>
 
             {/* Bullets */}
             <Stack
+              as="ul"
               spacing={3}
               fontSize={{ base: "md", md: "lg" }}
               color="gray.800"
+              listStyleType="none"
+              m={0}
+              p={0}
             >
-              <HStack>
-                <Icon as={FiCheckCircle} color="gray.600" boxSize={5} />
-                <Text>Emagrecimento saudável e sustentável</Text>
-              </HStack>
-              <HStack>
-                <Icon as={GiWeightLiftingUp} color="gray.600" boxSize={5} />
-                <Text>Performance esportiva: energia, foco e recuperação</Text>
-              </HStack>
-              <HStack>
-                <Icon as={TbClipboardCheck} color="gray.600" boxSize={5} />
-                <Text>Plano alimentar feito sob medida para a sua vida real</Text>
-              </HStack>
+              {BULLETS.map(({ icon, text }, i) => (
+                <HStack as="li" key={i}>
+                  <Icon as={icon} color="gray.600" boxSize={5} aria-hidden="true" focusable="false" />
+                  <Text>{text}</Text>
+                </HStack>
+              ))}
             </Stack>
 
             {/* CTAs Secundários */}
@@ -144,8 +161,22 @@ export default function HeroModern() {
               flexWrap="wrap"
               justify={{ base: "center", md: "flex-start" }}
             >
-              <CTAButton variant="primary">Quero cuidar da minha saúde</CTAButton>
-              <CTAButton variant="outline" href="#testimonials">Conhecer histórias reais</CTAButton>
+              <CTAButton
+                variant="primary"
+                aria-label="Quero cuidar da minha saúde"
+                data-cta="hero-primary"
+                type="button"
+              >
+                Quero cuidar da minha saúde
+              </CTAButton>
+              <CTAButton
+                variant="outline"
+                href="#testimonials"
+                aria-label="Conhecer histórias reais"
+                data-cta="hero-secondary"
+              >
+                Conhecer histórias reais
+              </CTAButton>
             </HStack>
           </MotionStack>
         </SimpleGrid>
