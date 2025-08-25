@@ -5,21 +5,25 @@ import {
   Text,
   Stack,
   SimpleGrid,
-  Image,
   Grid,
   List,
   ListIcon,
   ListItem,
   AspectRatio,
+  Image,
 } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
-import { CRN } from "../constants";
+import { CRN } from "../constants/general";
 import { CTAButton } from "./CTAButton";
+
+// ✅ imports novos: constants + utils de imagem
+import { IMAGES } from "../constants/imageSources";
+import { buildPicture } from "../utils/imageSelect";
 
 // ====== copy centralizada (clean code) ======
 const ABOUT_COPY = {
   titlePrefix: "Quem é ",
-  name: "Livia Anjos", // padronize para "Lívia" se essa for a marca
+  name: "Lívia Anjos",
   subtitleLead: "Nutricionista Clínica e Esportiva",
   p1: `Ao longo da minha jornada, vivi experiências que me mostraram o verdadeiro impacto da disciplina e do foco. Uma delas foi o fisiculturismo, onde aprendi na prática que resultados consistentes nascem da união entre ciência e dedicação.`,
   p2: `Hoje, aplico esse aprendizado tanto para atletas quanto para pessoas comuns, ajudando cada paciente a alcançar seu máximo potencial — seja para melhorar a performance nos treinos ou para emagrecer com saúde e equilíbrio.`,
@@ -34,6 +38,10 @@ const BENEFITS = [
 ];
 
 export default function About() {
+  // ⚙️ monta os dados das imagens a partir dos constants
+  const picBackPose = buildPicture(IMAGES.LIVIA_BACK_POSE_BODYBUILDING);
+  const picAward = buildPicture(IMAGES.LIVIA_AWARD_STAGE_TROPHY_3RD_PLACE);
+
   return (
     <Box
       as="section"
@@ -61,7 +69,7 @@ export default function About() {
           </Text>
         </Heading>
 
-        {/* Subtítulo (com CRN e jobTitle) */}
+        {/* Subtítulo */}
         <Text
           fontSize="lg"
           textAlign="center"
@@ -80,9 +88,9 @@ export default function About() {
         <SimpleGrid
           columns={{ base: 1, md: 2 }}
           spacing={{ base: 8, md: 10 }}
-          alignItems="start"          // alinhar pelo topo
+          alignItems="start"
         >
-          {/* Imagens — sem cortes no mobile; maiores no desktop */}
+          {/* Imagens (agora com constants + utils) */}
           <Grid
             order={{ base: -1, md: 1 }}
             templateColumns={{ base: "1fr", sm: "1fr 1fr" }}
@@ -90,44 +98,68 @@ export default function About() {
             justifyItems={{ base: "center", md: "start" }}
             alignSelf="start"
           >
+            {/* Foto 1: back pose */}
             <AspectRatio
               w="100%"
-              maxW={{ base: "280px", sm: "300px", md: "360px", lg: "400px" }}
+              maxW={{ base: "280px", sm: "300px", md: "360px", lg: "420px" }}
               ratio={3 / 4}
             >
-              <Image
-                src="/livia-posando.jpg"
-                alt="Livia Anjos em competição de fisiculturismo"
-                borderRadius="xl"
-                shadow="lg"
-                objectFit={{ base: "contain", md: "cover" }}
-                objectPosition={{ md: "center" }}
-                bg={{ base: "blackAlpha.50", md: "transparent" }}
-                loading="lazy"
-                decoding="async"
-                sizes="(max-width: 480px) 280px, (max-width: 768px) 300px, (max-width: 1024px) 360px, 400px"
-                itemProp="image"
-              />
+              <picture>
+                {picBackPose.sources.map((s) => (
+                  <source
+                    key={s.type}
+                    type={s.type}
+                    srcSet={s.srcSet}
+                    sizes={picBackPose.img.sizes}
+                  />
+                ))}
+                <Image
+                  src={picBackPose.img.src}
+                  srcSet={picBackPose.img.srcSet}
+                  sizes={picBackPose.img.sizes}
+                  alt={picBackPose.img.alt}
+                  borderRadius="xl"
+                  shadow="lg"
+                  objectFit={{ base: "contain", md: "cover" }}
+                  objectPosition={{ md: "center" }}
+                  bg={{ base: "blackAlpha.50", md: "transparent" }}
+                  loading="lazy"
+                  decoding="async"
+                  itemProp="image"
+                />
+              </picture>
             </AspectRatio>
 
+            {/* Foto 2: premiação com troféu */}
             <AspectRatio
               w="100%"
-              maxW={{ base: "280px", sm: "300px", md: "360px", lg: "400px" }}
+              maxW={{ base: "280px", sm: "300px", md: "360px", lg: "420px" }}
               ratio={3 / 4}
             >
-              <Image
-                src="/livia-fisiculturista.jpg"
-                alt="Livia Anjos no palco de fisiculturismo"
-                borderRadius="xl"
-                shadow="lg"
-                objectFit={{ base: "contain", md: "cover" }}
-                objectPosition={{ md: "center top" }} // ajuste fino, se quiser mais foco no rosto
-                bg={{ base: "blackAlpha.50", md: "transparent" }}
-                loading="lazy"
-                decoding="async"
-                sizes="(max-width: 480px) 280px, (max-width: 768px) 300px, (max-width: 1024px) 360px, 400px"
-                itemProp="image"
-              />
+              <picture>
+                {picAward.sources.map((s) => (
+                  <source
+                    key={s.type}
+                    type={s.type}
+                    srcSet={s.srcSet}
+                    sizes={picAward.img.sizes}
+                  />
+                ))}
+                <Image
+                  src={picAward.img.src}
+                  srcSet={picAward.img.srcSet}
+                  sizes={picAward.img.sizes}
+                  alt={picAward.img.alt}
+                  borderRadius="xl"
+                  shadow="lg"
+                  objectFit={{ base: "contain", md: "cover" }}
+                  objectPosition={{ md: "center top" }}
+                  bg={{ base: "blackAlpha.50", md: "transparent" }}
+                  loading="lazy"
+                  decoding="async"
+                  itemProp="image"
+                />
+              </picture>
             </AspectRatio>
           </Grid>
 
@@ -136,7 +168,7 @@ export default function About() {
             spacing={6}
             fontSize={{ base: "md", md: "lg" }}
             color="gray.800"
-            maxW="60ch"               // largura ideal de leitura
+            maxW="60ch"
             alignSelf="start"
           >
             <Text>{ABOUT_COPY.p1}</Text>

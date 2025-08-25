@@ -5,9 +5,10 @@ export const COLORS = {
   text:   "#111111",
   whats:  "#25D366",
   green:  "#6BBF59" 
-} as const;
+} 
 
 export const WHATS_LINK = "https://wa.me/message/QNG6NJJNZTVLB1";
 export const INSTAGRAM_LINK  = "https://instagram.com/nutrianjoos";
 export const CRN        = "CRN-22849/P"; 
-export const METHOD_NAME = "Método NutriPódio";
+
+

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { INSTAGRAM_LINK, CRN } from "../constants";
+import { INSTAGRAM_LINK, CRN } from "../constants/general";
 
 type Props = { children: ReactNode };
 

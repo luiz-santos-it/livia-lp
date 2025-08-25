@@ -1,5 +1,5 @@
 import { Box, Container, Heading, Text, Button, Stack } from "@chakra-ui/react";
-import { WHATS_LINK } from "../constants";
+import { WHATS_LINK } from "../constants/general";
 import { trackWhatsClick } from "../utils/analytics";
 
 export default function ScheduleCTA(){

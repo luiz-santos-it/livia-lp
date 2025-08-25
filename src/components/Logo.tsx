@@ -1,5 +1,5 @@
 import { HStack, Text, Box } from "@chakra-ui/react";
-import { COLORS } from "../constants";
+import { COLORS } from "../constants/general";
 
 type Props = {
   size?: number;

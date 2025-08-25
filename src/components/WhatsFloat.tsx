@@ -1,5 +1,5 @@
 import { IconButton, Image } from "@chakra-ui/react";
-import { WHATS_LINK } from "../constants";
+import { WHATS_LINK } from "../constants/general";
 
 export default function WhatsFloat() {
   return (

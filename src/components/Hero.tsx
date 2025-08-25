@@ -20,7 +20,7 @@ import { motion } from "framer-motion";
 import { FiCheckCircle, FiUsers, FiAward, FiMapPin, FiGlobe } from "react-icons/fi";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import { TbClipboardCheck } from "react-icons/tb";
-import { COLORS, CRN, INSTAGRAM_LINK } from "../constants";
+import { COLORS, CRN, INSTAGRAM_LINK } from "../constants/general";
 import fotoLivia from "/foto-livia.jpg";
 import { CTAButton } from "./CTAButton";
 

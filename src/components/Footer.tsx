@@ -1,5 +1,5 @@
 import { Box, Container, HStack, Text, Link } from "@chakra-ui/react";
-import { INSTAGRAM_LINK } from "../constants";
+import { INSTAGRAM_LINK } from "../constants/general";
 import Logo from "./Logo";
 
 export default function Footer(){
