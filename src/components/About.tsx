@@ -98,7 +98,40 @@ export default function About() {
             justifyItems={{ base: "center", md: "start" }}
             alignSelf="start"
           >
-            {/* Foto 1: back pose */}
+            
+            {/* Foto 1: premiação com troféu */}
+            <AspectRatio
+              w="100%"
+              maxW={{ base: "280px", sm: "300px", md: "360px", lg: "420px" }}
+              ratio={3 / 4}
+            >
+              <picture>
+                {picAward.sources.map((s) => (
+                  <source
+                    key={s.type}
+                    type={s.type}
+                    srcSet={s.srcSet}
+                    sizes={picAward.img.sizes}
+                  />
+                ))}
+                <Image
+                  src={picAward.img.src}
+                  srcSet={picAward.img.srcSet}
+                  sizes={picAward.img.sizes}
+                  alt={picAward.img.alt}
+                  borderRadius="xl"
+                  shadow="lg"
+                  objectFit={{ base: "contain", md: "cover" }}
+                  objectPosition={{ md: "center top" }}
+                  bg={{ base: "blackAlpha.50", md: "transparent" }}
+                  loading="lazy"
+                  decoding="async"
+                  itemProp="image"
+                />
+              </picture>
+            </AspectRatio>
+
+            {/* Foto 2: back pose */}
             <AspectRatio
               w="100%"
               maxW={{ base: "280px", sm: "300px", md: "360px", lg: "420px" }}
@@ -130,37 +163,6 @@ export default function About() {
               </picture>
             </AspectRatio>
 
-            {/* Foto 2: premiação com troféu */}
-            <AspectRatio
-              w="100%"
-              maxW={{ base: "280px", sm: "300px", md: "360px", lg: "420px" }}
-              ratio={3 / 4}
-            >
-              <picture>
-                {picAward.sources.map((s) => (
-                  <source
-                    key={s.type}
-                    type={s.type}
-                    srcSet={s.srcSet}
-                    sizes={picAward.img.sizes}
-                  />
-                ))}
-                <Image
-                  src={picAward.img.src}
-                  srcSet={picAward.img.srcSet}
-                  sizes={picAward.img.sizes}
-                  alt={picAward.img.alt}
-                  borderRadius="xl"
-                  shadow="lg"
-                  objectFit={{ base: "contain", md: "cover" }}
-                  objectPosition={{ md: "center top" }}
-                  bg={{ base: "blackAlpha.50", md: "transparent" }}
-                  loading="lazy"
-                  decoding="async"
-                  itemProp="image"
-                />
-              </picture>
-            </AspectRatio>
           </Grid>
 
           {/* Texto */}
